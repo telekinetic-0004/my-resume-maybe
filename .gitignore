@@ -1,0 +1,23 @@
+# LaTeX - Core auxiliary files (SAFE TO IGNORE)
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.dvi
+
+# LaTeX - Bibliography auxiliary files
+*.bbl
+*.blg
+*.brf
+
+# Editors - formatting and temp files
+.vscode/
+.DS_Store
+*.swp
+
+# IMPORTANT: Ignore the PDF
+# Since GitHub is building the PDF for you, you don't want to upload your local version and cause conflicts.
+*.pdf
