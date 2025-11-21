@@ -26,7 +26,7 @@ jobs:
       # This ensures your live site contains ONLY the PDF and the HTML viewer
       - name: Prepare Deployment Folder
         run: |
-          mkdir public
+          mkdir -p public
           cp resume.pdf public/
           cp index.html public/
           # If your resume uses images (like a photo), uncomment the next line:
