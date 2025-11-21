@@ -1,0 +1,40 @@
+name: Build and Deploy Resume
+
+# Trigger the action when you push to the 'main' branch
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Get your code
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Step 2: Compile the LaTeX into a PDF
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex  # <--- IMPORTANT: Ensure this matches your .tex filename
+
+      # Step 3: Move files to a clean "public" folder
+      # This ensures your live site contains ONLY the PDF and the HTML viewer
+      - name: Prepare Deployment Folder
+        run: |
+          mkdir public
+          cp resume.pdf public/
+          cp index.html public/
+          # If your resume uses images (like a photo), uncomment the next line:
+          # cp -r images/ public/
+
+      # Step 4: Push the "public" folder to the live website branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
