@@ -26,9 +26,14 @@ jobs:
       # This ensures your live site contains ONLY the PDF and the HTML viewer
       - name: Prepare Deployment Folder
         run: |
+          # The -p flag ensures this command doesn't fail if the folder already exists
           mkdir -p public
+          
+          # Move the newly compiled PDF into the public folder
           cp resume.pdf public/
-          cp index.html public/
+          
+          # Note: We do NOT copy index.html because it is already inside 'public/'
+          
           # If your resume uses images (like a photo), uncomment the next line:
           # cp -r images/ public/
 
