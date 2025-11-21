@@ -1,6 +1,5 @@
 name: Build and Deploy Resume
 
-# Trigger the action when you push to the 'main' branch
 on:
   push:
     branches: [ "main" ]
@@ -20,24 +19,27 @@ jobs:
       - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: resume.tex  # <--- IMPORTANT: Ensure this matches your .tex filename
+          root_file: resume.tex
 
-      # Step 3: Move files to a clean "public" folder
-      # This ensures your live site contains ONLY the PDF and the HTML viewer
-      - name: Prepare Deployment Folder
+      # Step 3: Rename PDF and Update HTML
+      - name: Process Files for Deployment
         run: |
-          # The -p flag ensures this command doesn't fail if the folder already exists
-          mkdir -p public
+          # 1. Generate the timestamp (e.g., 21-Nov-2025_18-30-05)
+          TIMESTAMP=$(TZ='Asia/Kolkata' date +'%d-%b-%Y_%H-%M-%S')
           
-          # Move the newly compiled PDF into the public folder
-          cp resume.pdf public/
-          
-          # Note: We do NOT copy index.html because it is already inside 'public/'
-          
-          # If your resume uses images (like a photo), uncomment the next line:
-          # cp -r images/ public/
+          # 2. Define the new filename
+          NEW_FILENAME="Resume-of-JSC_${TIMESTAMP}.pdf"
+          echo "Generated filename: $NEW_FILENAME"
 
-      # Step 4: Push the "public" folder to the live website branch
+          # 3. Move the compiled PDF (from root) into the public folder
+          # We rename it during the move
+          mv resume.pdf "public/$NEW_FILENAME"
+
+          # 4. Update the EXISTING index.html inside public/
+          # This replaces all instances of 'resume.pdf' with the new timestamped name
+          sed -i "s|resume.pdf|$NEW_FILENAME|g" public/index.html
+
+      # Step 4: Deploy
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
