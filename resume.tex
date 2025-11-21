@@ -1,0 +1,204 @@
+\documentclass[letterpaper,11pt]{article}
+
+% -------------------- Packages --------------------
+\usepackage{fontawesome5}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[sfdefault]{plex-sans} % IBM Plex Sans
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\input{glyphtounicode}
+
+\setlength{\footskip}{8pt}
+
+% -------------------- Branding / Colors --------------------
+\definecolor{accent}{HTML}{0A84FF}
+
+% Section formatting with accent color (no internal vspace)
+\titleformat{\section}
+  {\color{accent}\bfseries\raggedright\large}
+  {}{0em}{}[\color{accent}\titlerule]
+
+% Tighter space around headings: {left}{before}{after}
+\titlespacing*{\section}{0pt}{4pt}{2pt}
+
+% Readability + ATS
+\setlength{\parskip}{5pt} % <-- more breathing room between paragraphs/lists
+\pdfgentounicode=1
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% -------------------- Custom Commands --------------------
+% Global list spacing: more comfortable
+\setlist[itemize]{leftmargin=*, itemsep=3pt, topsep=3pt, parsep=0pt, partopsep=0pt}
+
+% Bullets
+\renewcommand\labelitemi{\raisebox{0.2ex}{\tiny$\bullet$}}
+\renewcommand\labelitemii{\raisebox{0.2ex}{\tiny$\bullet$}}
+
+% Tweakable styles
+\newcommand{\EmployerStyle}{\bfseries} % employer/school/project name bold
+\newcommand{\EmployerSize}{}           % set to \large if you want bigger names
+% \renewcommand{\EmployerSize}{\large} % (optional) bigger names without using \large outside
+
+% Bullet item
+\newcommand{\resumeItem}[1]{%
+  \item \small #1%
+}
+
+% Two-line subheading with left title + right date/location (uses tabularx)
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{1pt}\item
+  \begin{tabularx}{0.98\textwidth}[t]{@{}Xr@{}}
+    {\EmployerSize\EmployerStyle #1} & {\small #2} \\
+    {\itshape\footnotesize #3} & {\itshape\footnotesize #4} \\
+  \end{tabularx}\vspace{-3pt}% <-- relaxed spacing
+}
+
+% Project heading with optional right-aligned metadata/link
+\newcommand{\resumeProjectHeading}[2]{%
+  \item
+  \begin{tabularx}{0.98\textwidth}[t]{@{}Xr@{}}
+    {\small #1} & {\small #2} \\
+  \end{tabularx}\vspace{-3pt}% <-- relaxed spacing
+}
+
+% List wrappers
+\newcommand{\resumeSubHeadingListStart}{%
+  \begin{itemize}[leftmargin=0.15in, label={}, topsep=2pt, partopsep=0pt]%
+}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*, itemsep=3pt, topsep=3pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-3pt}}
+
+% Icon color helper
+\definecolor{Black}{RGB}{0, 0, 0}
+\newcommand{\seticon}[1]{\textcolor{Black}{\csname #1\endcsname}}
+
+% -------------------- Document --------------------
+\begin{document}
+
+% ---------- HEADING ----------
+\begin{center}
+    \textbf{\Huge Jaymin S Chandaria} \\ \vspace{1pt}
+    \faIcon{phone-square-alt} \ \small +91-9483014950 \quad
+    \href{mailto:jchandaria.work@gmail.com}{\faIcon{at} \underline{jchandaria.work@gmail.com}} \quad
+    \href{https://www.linkedin.com/in/mainhoonjaymin}{\seticon{faLinkedin} \underline{linkedin.com/jchandaria}} \quad
+    \href{https://github.com/telekinetic-0004}{\seticon{faGithub} \underline{github.com/telekinetic-0004}}
+\end{center}
+
+% ---------- EDUCATION ----------
+\section{Education}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+  {\faIcon{university} Presidency University (Bengaluru, Karnataka)}{August 2024}
+  {Bachelor of Technology in Computer Science \& Engineering (Cyber Security)}{CGPA: 8.64 / 10.00}
+  \resumeItemListStart
+    \resumeItem{\textbf{Relevant Coursework:}  Data Comm. \& Computer Networks, Database Management Systems, Engineering Economics, IDPS, Web Security, AI \& ML, Operating Systems, Data Structures \& Algorithms, Cyber Forensics, Cryptography \& Network Security, Cyber Threats for IoT \& Cloud, Design Analysis \& Algorithms}
+  \resumeItemListEnd
+
+  \resumeSubheading
+  {\faIcon{university} V.V.S Pre-University College (Bengaluru, Karnataka)}{April 2020}
+  {Physics, Chemistry, Mathematics, Computer Science - (2nd PUC/12th Std)}{Percentage: 85.5\%}
+  \resumeItemListStart
+    \resumeItem{\textbf{Relevant Coursework:}  DBMS, C++ Language Basics, Syntax Analysis, DSA, Object Oriented Programming Concepts}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% ---------- EXPERIENCE ----------
+\section{Experience}
+\resumeSubHeadingListStart
+
+  % (Avoid putting \large before macros—use \EmployerSize instead if needed)
+  \resumeSubheading
+  {Eviden (Paladion Networks Pvt. Ltd.)}{Mar 2024 -- Jul 2025}
+  {Junior Threat Intelligence Analyst (Junior Associate)}{Bengaluru, Karnataka}
+
+  \resumeSubheading
+  {Atos (Paladion Networks Pvt. Ltd.)}{Jul 2025 -- Present}
+  {Threat Intelligence Analyst (Associate)}{Bengaluru, Karnataka}
+  \resumeItemListStart
+    \resumeItem{Working with the CTI/CERT/CSIRT teams of/affiliated with Eviden/Atos across the globe and helping our clients to be upated with the latest reported/unreported threats and vulnerabilities}
+  \resumeItemListEnd
+
+  \resumeSubheading
+  {Linchpin}{Dec 2022 -- Jan 2024}
+  {Head of Technology}{Presidency University}
+  \resumeItemListStart
+    \resumeItem{Pioneered \& organised an event called “the bait” - where the capabilities of generative AI were established.}
+    \resumeItem{Increased the productivity by 15\% by better utilizing available technologies in events - "Exit Stategy" \& "Kalinga".}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% ---------- PROJECTS ----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+  % Keep original text; avoid \\ inside the macro argument to prevent table row issues
+\resumeProjectHeading
+{\shortstack[l]{%
+  \large\textbf{\faIcon{book} myDeed -- web3 File Storage \& management on Blockchain}\\[-1pt]
+  {\footnotesize \emph{\textbf{Tools used}}: Solidity, HTML+JS+CSS, Metamask, Hardhat, Pinata}%
+}}{}
+\resumeItemListStart
+    \resumeItem{Designed and deployed a scalable Dapp on the sepolia testnet, achieving data retrieval and access with 100\% autonomy of an uploaded file to its owner and 50\% to the users with shared access.}
+    \resumeItem{Implemented a real-time file-view and access-revocation feature using IPFS and Javascript, enhancing user experience and reducing user ambiguity by 60\% by storing the metadata of the file on the blockchain.}
+    \resumeItem{\href{https://github.com/myDeed/myDeed}{\seticon{faGithub} \underline{github.com/myDeed/myDeed}} $\Longleftarrow$ \textbf {Link to the project}}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% ---------- PUBLICATIONS ----------
+\section{Publications}
+\small\href{https://ijrpr.com/uploads/V5ISSUE1/IJRPR21752.pdf}{\faIcon{file-alt} \underline{MyDeed – A Blockchain Based Storage Solution for Official Documents}} \quad
+
+% ---------- CERTIFICATIONS ----------
+\section{Certifications}
+% NOTE: &amp; was normalized to & inside URLs only. Visible text unchanged.
+\href{https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiI2ODciLCJjZXJ0aWZpY2F0ZV91cmwiOiJodHRwczovL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0L3NoYXJlL3RodW1iXzM4OTU0NDlfMTY2NzE2MzU2OS5wbmciLCJ1c2VybmFtZSI6IkpheW1pbiBTIENoYW5kYXJpYSJ9&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https://lms.simplilearn.com/dashboard/certificate&$web_only=true&_branch_match_id=1213881117021719305&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87MLcjJ1EssKNDLyczL1k/VzyyscsnIcfEOcEoCAAS/MSolAAAA}{\faIcon{link}\underline{Machine Learning} }
+\href{https://www.dropbox.com/scl/fi/j39mnwepvrf97m2f1jna2/VAC-2022-M.pdf?rlkey=fwzx1eusclgrezm7614eyifia&dl=0}{\faIcon{link}\underline{(VAC) Elliptic Curve Cryptography in Data Security} }
+\href{https://www.credly.com/badges/0a302591-4016-48ef-b472-c78ac1c5508f/public_url}{\faIcon{link}\underline{Google Cybersecurity Certificate}  }
+\href{https://www.dropbox.com/scl/fi/3xgp3wdmqjhr58v4jeyqa/Designing-Blockchain-Solutions-using-Amazon-Managed-Blockchain-Certificate.pdf?rlkey=ag1or3kq4sphl56hbpvk6qtp4&dl=0}{\faIcon{link}\underline{Designing Blockchain Solutions using Amazon Managed Blockchain} }
+\href{https://www.dropbox.com/scl/fi/176sh28lxtga0ku9vybyb/ECC-CEHMaster-Certificate.pdf}{\faIcon{link}\underline{Certified Ethical Hacker Master (ECC1695074823)}    }
+\href{https://academy.hackthebox.com/achievement/badge/0303cf83-bee3-11f0-9254-bea50ffe6cb4}{\faIcon{link}\underline{Certified Defensive Security Analyst (HTBCERT-7C1CC3F451)} }
+
+% ---------- TECHNICAL SKILLS ----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \item \textbf{Cybersecurity Tools \& Techniques}{: (VAPT, Malware Analysis, Network Security, Threat Hunting, Cryptography Fundamentals, CTI \& Cybersecurity Frameworks (MITRE ATT\&CK, Cyber Kill Chain), OSINT, DW Fundamentals}
+  \item \textbf{Programming \& Scripting Languages}{: Python, C, C++, HTML, JavaScript, CSS (Web Security), MySQL (Database Security), Solidity (Smart Contract Security)}
+  \item \textbf{Technologies \& Tools}{: Kali Linux, Wireshark, Metasploit, Burp Suite, Reverse Engineering Tools (IDA, Ghidra), Google Cloud Platform, Web3.js (Blockchain Security), KQL querying}
+  \item \textbf{Concepts} {: Operating Systems (Windows, Linux), API Security, Database Normalization, Agile Methodology (Security Projects), Cloud Security, Object-Oriented Programming (Secure Coding Practices)}
+\end{itemize}
+
+\end{document}
