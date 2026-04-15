@@ -1,1 +1,173 @@
+\documentclass[letterpaper,10pt]{article}
 
+% -------------------- Packages --------------------
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\input{glyphtounicode}
+
+\setlength{\footskip}{4pt}
+\pdfgentounicode=1
+
+% -------------------- Section Formatting --------------------
+\titleformat{\section}
+  {\bfseries\raggedright\large}
+  {}{0em}{}[\titlerule]
+% {left}{before}{after}
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+
+% Margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\topmargin}{-.65in}
+\addtolength{\textheight}{1.3in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% -------------------- Custom Commands --------------------
+% Comfortable bullet lists — not ultra-tight
+\setlist[itemize]{leftmargin=*, itemsep=2pt, topsep=2pt, parsep=0pt, partopsep=0pt}
+
+\renewcommand\labelitemi{\textbullet}
+\renewcommand\labelitemii{\textbullet}
+
+\newcommand{\resumeItem}[1]{\item \small #1}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{4pt}\item
+  {\large\bfseries #1} \hfill {\small #2} \\[-1pt]
+  {\itshape\footnotesize #3} \hfill {\itshape\footnotesize #4}%
+  \vspace{1pt}%
+}
+
+\newcommand{\resumeProjectHeading}[1]{%
+  \vspace{2pt}\item #1\vspace{1pt}%
+}
+
+% List wrappers
+\newcommand{\resumeSubHeadingListStart}{%
+  \begin{itemize}[leftmargin=0.15in, label={}, topsep=2pt, partopsep=0pt, itemsep=0pt]%
+}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-2pt}}
+
+\newcommand{\resumeItemListStart}{%
+  \begin{itemize}[leftmargin=0.2in, itemsep=2pt, topsep=2pt, parsep=0pt]%
+}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-1pt}}
+
+% -------------------- Document --------------------
+\begin{document}
+
+% ---------- HEADING ----------
+\begin{center}
+    \textbf{\Huge Jaymin S Chandaria} \\ \vspace{2pt}
+    \small +91-9483014950 \quad|\quad
+    \href{mailto:jchandaria.work@gmail.com}{\underline{jchandaria.work@gmail.com}} \quad|\quad
+    \href{https://www.linkedin.com/in/jchandaria}{\underline{linkedin.com/in/jchandaria}} \quad|\quad
+    \href{https://github.com/telekinetic-0004}{\underline{github.com/telekinetic-0004}}
+\end{center}
+\vspace{-4pt}
+
+% ---------- PROFESSIONAL SUMMARY ----------
+\section{Professional Summary}
+\small Threat Researcher at Atos Threat Research Center (TRC) with 2+ years of experience in Cyber Threat Intelligence (CTI), Managed Detection and Response (MDR), adversary research, and threat analysis. Holds CEH Master (ECC1695074823), Google Cybersecurity Certificate, and Certified Defensive Security Analyst (HTBCERT-7C1CC3F451); proficient in MITRE ATT\&CK, Cyber Kill Chain, OSINT, VAPT, malware analysis, and threat hunting.
+\vspace{-2pt}
+
+% ---------- WORK EXPERIENCE ----------
+\section{Work Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+  {Atos (Paladion Networks Pvt. Ltd.)}{Jan 2026 -- Present}
+  {Associate -- Threat Researcher (Atos TRC)}{Bengaluru, Karnataka, India | Hybrid}
+  \resumeItemListStart
+    \resumeItem{Conducting in-depth Adversary Research and Cyber Threat Intelligence (CTI) through the newly launched Atos Threat Research Center (TRC).}
+    \resumeItem{Delivering actionable research and intelligence on the latest trends and threats in collaboration with Atos TRC.}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {Atos (Paladion Networks Pvt. Ltd.)}{Jul 2025 -- Feb 2026}
+  {Associate -- Threat Intelligence Analyst (SPOT Award)}{Bengaluru, Karnataka, India | Hybrid}
+  \resumeItemListStart
+    \resumeItem{Supported threat intelligence operations with a focus on Managed Detection and Response (MDR), threat analysis, and related investigations.}
+  \resumeItemListEnd
+
+\resumeSubheading
+  {Eviden (Paladion Networks Pvt. Ltd.)}{Mar 2024 -- Jul 2025}
+  {Junior Associate -- Threat Intelligence Analyst (SPOT Award x2)}{Bengaluru, Karnataka, India | Hybrid}
+  \resumeItemListStart
+    \resumeItem{Worked with Cyber Threat Intelligence (CTI) teams affiliated with Eviden/Atos across the globe and helped vendors stay updated on the latest reported and unreported threats and vulnerabilities.}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% ---------- CERTIFICATIONS & PUBLICATIONS ----------
+\section{Certifications \& Publications}
+\begin{itemize}[leftmargin=0.15in, itemsep=3pt, topsep=2pt, parsep=0pt]
+  \item \textbf{Certified Ethical Hacker Master (ECC1695074823)} -- EC-Council \href{https://www.dropbox.com/scl/fi/176sh28lxtga0ku9vybyb/ECC-CEHMaster-Certificate.pdf}{[\underline{Link}]}
+  \item \textbf{Certified Defensive Security Analyst (HTBCERT-7C1CC3F451)} -- Hack The Box \href{https://academy.hackthebox.com/achievement/badge/0303cf83-bee3-11f0-9254-bea50ffe6cb4}{[\underline{Link}]}
+  \item \textbf{Google Cybersecurity Certificate} -- Google / Coursera \href{https://www.credly.com/badges/0a302591-4016-48ef-b472-c78ac1c5508f/public_url}{[\underline{Link}]}
+  \item Machine Learning -- Simplilearn \href{https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiI2ODciLCJjZXJ0aWZpY2F0ZV91cmwiOiJodHRwczovL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0L3NoYXJlL3RodW1iXzM4OTU0NDlfMTY2NzE2MzU2OS5wbmciLCJ1c2VybmFtZSI6IkpheW1pbiBTIENoYW5kYXJpYSJ9&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https://lms.simplilearn.com/dashboard/certificate&$web_only=true&_branch_match_id=1213881117021719305&_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87MLcjJ1EssKNDLyczL1k/VzyuscsnIcfEOcEoCAAS/MSolAAAA}{[\underline{Link}]}
+  \item (VAC) Elliptic Curve Cryptography in Data Security \href{https://www.dropbox.com/scl/fi/j39mnwepvrf97m2f1jna2/VAC-2022-M.pdf?rlkey=fwzx1eusclgrezm7614eyifia&dl=0}{[\underline{Link}]}
+  \item \textbf{Publication:} MyDeed -- A Blockchain Based Storage Solution for Official Documents (IJRPR) \href{https://ijrpr.com/uploads/V5ISSUE1/IJRPR21752.pdf}{[\underline{Link}]}
+\end{itemize}
+\vspace{-2pt}
+
+% ---------- PROJECTS ----------
+\section{Projects}
+\resumeSubHeadingListStart
+
+\resumeProjectHeading{%
+  \textbf{\large myDeed -- Web3 File Storage and Management on Blockchain}\newline
+  {\footnotesize \textit{Tools used}: Solidity, HTML, JavaScript, CSS, Metamask, Hardhat, Pinata}%
+}
+\resumeItemListStart
+    \resumeItem{Designed and deployed a scalable Decentralized Application (Dapp) on the Sepolia testnet, achieving 100\% autonomous data ownership for file owners and 50\% access control for users with shared permissions.}
+    \resumeItem{Implemented a real-time file-view and access-revocation feature using IPFS and JavaScript, reducing user ambiguity by 60\% by storing file metadata on the blockchain.}
+    \resumeItem{\href{https://github.com/myDeed/myDeed}{\underline{github.com/myDeed/myDeed}} -- Link to the project}
+  \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+% ---------- EDUCATION ----------
+\section{Education}
+\resumeSubHeadingListStart
+
+  \resumeSubheading
+  {Presidency University, Bengaluru, Karnataka}{August 2024}
+  {Bachelor of Technology -- Computer Science and Engineering (Cyber Security)}{CGPA: 8.64 / 10.00}
+  \resumeItemListStart
+    \resumeItem{\textbf{Relevant Coursework:} Data Communications and Networks, Database Management Systems, Engineering Economics, IDPS, Web Security, AI and ML, Operating Systems, Data Structures and Algorithms, Cyber Forensics, Cryptography and Network Security, Cyber Threats for IoT and Cloud, Design Analysis and Algorithms}
+  \resumeItemListEnd
+
+  \resumeSubheading
+  {V.V.S Pre-University College, Bengaluru, Karnataka}{April 2020}
+  {Physics, Chemistry, Mathematics, Computer Science -- 2nd PUC / 12th Standard}{Percentage: 85.5\%}
+
+\resumeSubHeadingListEnd
+
+% ---------- SKILLS ----------
+\section{Skills}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=4pt, topsep=2pt, parsep=0pt]
+  \item \textbf{Cybersecurity Techniques:} Vulnerability Assessment and Penetration Testing (VAPT), Malware Analysis, Network Security, Threat Hunting, Cryptography Fundamentals, Cyber Threat Intelligence (CTI), Cybersecurity Frameworks (MITRE ATT\&CK, Cyber Kill Chain), Open Source Intelligence (OSINT), Dark Web Fundamentals
+  \item \textbf{Programming or Scripting Languages:} Python, C, C++, HTML, JavaScript, CSS, MySQL, Solidity
+  \item \textbf{Technologies and Tools:} Kali Linux, Wireshark, Metasploit, Burp Suite, Reverse Engineering Tools (IDA Pro, Ghidra), Google Cloud Platform, Web3.js (Blockchain Security), KQL (Kusto Query Language)
+  \item \textbf{Concepts:} Operating Systems (Windows, Linux), API Security, Database Normalization, Agile Methodology, Cloud Security, Object-Oriented Programming (OOP), Secure Coding Practices, Managed Detection and Response (MDR)
+\end{itemize}
+
+\end{document}
