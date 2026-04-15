@@ -1,47 +1,67 @@
-name: Build and Deploy Resume
+name: Build & Deploy Resume PDFs
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+    paths:
+      - "resume.tex"
+      - "ATS.tex"
+      - "public/**"
+      - ".github/workflows/build_resume.yml"
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build_and_deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      # Step 1: Get your code
-      - name: Checkout Repository
-        uses: actions/checkout@v3
 
-      # Step 2: Compile the LaTeX into a PDF
-      - name: Compile LaTeX
+    steps:
+      # ── 1. Checkout ──────────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # ── 2. Compile resume.tex → resume.pdf ───────────────────────────────────
+      - name: Compile resume.tex (Human-Friendly)
         uses: xu-cheng/latex-action@v3
         with:
           root_file: resume.tex
+          latexmk_use_lualatex: false   # set true if you use LuaLaTeX
+          latexmk_use_xelatex: false    # set true if you use XeLaTeX
 
-      # Step 3: Rename PDF and Update HTML
-      - name: Process Files for Deployment
+      # ── 3. Compile ATS.tex → ATS.pdf ─────────────────────────────────────────
+      - name: Compile ATS.tex (ATS-Friendly)
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: ATS.tex
+          latexmk_use_lualatex: false
+          latexmk_use_xelatex: false
+
+      # ── 4. Copy compiled PDFs into public/ (plain + dated filenames) ──────────
+      - name: Copy PDFs to public/
         run: |
-          # 1. Generate the timestamp (e.g., 21-Nov-2025_18-30-05)
-          TIMESTAMP=$(TZ='Asia/Kolkata' date +'%d-%b-%Y_%H-%M-%S')
-          
-          # 2. Define the new filename
-          NEW_FILENAME="Resume-of-JSC_${TIMESTAMP}.pdf"
-          echo "Generated filename: $NEW_FILENAME"
+          DATE=$(date +'%Y-%m-%d')
 
-          # 3. Move the compiled PDF (from root) into the public folder
-          # We rename it during the move
-          mv resume.pdf "public/$NEW_FILENAME"
+          # Plain names — used by the iframe in index.html
+          cp resume.pdf public/resume.pdf
+          cp ATS.pdf    public/ATS.pdf
 
-          # 4. Update the EXISTING index.html inside public/
-          # This replaces all instances of 'resume.pdf' with the new timestamped name
-          sed -i "s|resume.pdf|$NEW_FILENAME|g" public/index.html
+          # Dated names — used by the download buttons
+          cp resume.pdf "public/resume_${DATE}.pdf"
+          cp ATS.pdf    "public/ATS_${DATE}.pdf"
 
-      # Step 4: Deploy
+          echo "✓ resume.pdf  → public/resume.pdf"
+          echo "✓ resume.pdf  → public/resume_${DATE}.pdf"
+          echo "✓ ATS.pdf     → public/ATS.pdf"
+          echo "✓ ATS.pdf     → public/ATS_${DATE}.pdf"
+
+      # ── 5. Deploy public/ to GitHub Pages ────────────────────────────────────
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          publish_branch: gh-pages
+          commit_message: "ci: rebuild PDFs from ${{ github.sha }}"
