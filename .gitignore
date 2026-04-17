@@ -21,3 +21,5 @@
 # IMPORTANT: Ignore the PDF
 # Since GitHub is building the PDF for you, you don't want to upload your local version and cause conflicts.
 *.pdf
+
+CNAME
